@@ -118,17 +118,17 @@ public class SettingFragment extends Fragment implements FriendInfoView {
             messageNotify.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(getActivity(), MessageNotifySettingActivity.class);
-//                    startActivity(intent);
-                    Toast.makeText(getContext(),"还没做",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getActivity(), MessageNotifySettingActivity.class);
+                    startActivity(intent);
+
                 }
             });
             LineControllerView blackList = (LineControllerView) view.findViewById(R.id.blackList);
             blackList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(getActivity(), BlackListActivity.class);
-//                    startActivity(intent);
+                    Intent intent = new Intent(getActivity(), BlackListActivity.class);
+                    startActivity(intent);
 
                     Toast.makeText(getContext(),"还没做",Toast.LENGTH_LONG).show();
                 }
