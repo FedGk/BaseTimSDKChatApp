@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="user"
+            type="com.yolo.kraus.bysjdemo01.Bean.UserInfo"/>
+        <variable
+            name="vm"
+            type="com.yolo.kraus.bysjdemo01.ViewModel.LoginModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_backround"
+        android:alpha="0.5"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_marginTop="100dp"
+            android:layout_height="140dp"
+            android:layout_width="match_parent"
+            >
+
+            <EditText
+                android:id="@+id/login_account"
+                android:layout_width="@dimen/login_edit_width"
+                android:layout_height="@dimen/login_edit_height"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:hint="用 户 名"
+                android:maxLength="10"
+                android:textSize="15sp"
+                android:text="@={user.username}"
+                />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/login_edit_height"
+                android:layout_below="@id/login_account"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="15dp"
+                android:layout_alignStart="@id/login_account"
+                android:id="@+id/linearLayout"
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:id="@+id/login_password"
+                    android:layout_width="@dimen/login_edit_width"
+                    android:layout_height="@dimen/login_edit_height"
+                    android:layout_alignStart="@+id/linearLayout"
+                    android:layout_alignTop="@+id/linearLayout"
+                    android:hint="密 码"
+                    android:inputType="textPassword"
+                    android:maxLength="16"
+                    android:text="@={user.password}"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/login_pwd_image"
+                    android:layout_width="@dimen/login_eyes"
+                    android:layout_height="@dimen/login_eyes"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/login_close_eye"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="3dp"
+                     />
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+        <Button
+            android:text="@string/login_button"
+            android:layout_marginTop="15dp"
+            android:textSize="24sp"
+            android:alpha="0.5"
+            android:textColor="@color/loign_color_button_text"
+            android:background="@color/login_color_button"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/login_btn_verif_width"
+            android:layout_height="@dimen/login_btn_verif_height"
+            android:onClick="@{()->vm.loginButtonClick(user)}"
+            />
+
+
+    </LinearLayout>
+
+
+</layout>
