@@ -55,6 +55,8 @@
         <activity android:name=".Activity.ApplyGroupActivity"/>
         <activity android:name=".Activity.GroupMemberActivity"/>
         <activity android:name=".Activity.GroupMemberProfileActivity"/>
+        <activity android:name=".Activity.MessageNotifySettingActivity"/>
+        <activity android:name=".Activity.BlackListActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

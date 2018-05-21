@@ -129,8 +129,6 @@ public class SettingFragment extends Fragment implements FriendInfoView {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), BlackListActivity.class);
                     startActivity(intent);
-
-                    Toast.makeText(getContext(),"还没做",Toast.LENGTH_LONG).show();
                 }
             });
             LineControllerView about = (LineControllerView) view.findViewById(R.id.about);
