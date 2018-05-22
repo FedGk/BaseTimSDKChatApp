@@ -12,4 +12,6 @@ public interface loginView {
     void setButtonEnable();
     void setButtonable();
 
+    void jumpToNew();
+
 }

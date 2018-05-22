@@ -114,12 +114,13 @@ public class SettingFragment extends Fragment implements FriendInfoView {
                     });
                 }
             });
-            LineControllerView messageNotify = (LineControllerView) view.findViewById(R.id.messageNotify);
-            messageNotify.setOnClickListener(new View.OnClickListener() {
+            LineControllerView news = (LineControllerView) view.findViewById(R.id.news);
+            news.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), MessageNotifySettingActivity.class);
-                    startActivity(intent);
+//                    Intent intent = new Intent(getActivity(), MessageNotifySettingActivity.class);
+//                    startActivity(intent);
+                    Toast.makeText(getContext(),getResources().getString(R.string.setting_news),Toast.LENGTH_LONG).show();
 
                 }
             });

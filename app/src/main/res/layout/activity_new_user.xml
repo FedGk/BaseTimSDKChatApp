@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorGray1"
+    >
+
+    <com.yolo.kraus.ui.TemplateTitle
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleText="@string/new_title"
+        app:canBack="true"
+        app:moreText="@string/register"
+        android:id="@+id/new_user_title"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="账户名:"
+            android:gravity="center"
+            android:background="@color/btn_blue_hover"
+            />
+        <EditText
+            android:id="@+id/new_ed_name"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+
+        >
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="密码:"
+            android:gravity="center"
+            android:background="@color/btn_blue_hover"
+            />
+        <EditText
+            android:id="@+id/new_ed_password"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+
+            />
+    </LinearLayout>
+
+</LinearLayout>

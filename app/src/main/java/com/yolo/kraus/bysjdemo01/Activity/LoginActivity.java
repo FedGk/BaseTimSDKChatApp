@@ -1,10 +1,6 @@
 package com.yolo.kraus.bysjdemo01.Activity;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.databinding.Observable;
 import android.os.Bundle;
@@ -15,31 +11,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.tencent.imsdk.TIMCallBack;
-import com.tencent.imsdk.TIMConnListener;
-import com.tencent.imsdk.TIMManager;
-import com.tencent.imsdk.TIMMessage;
-import com.tencent.imsdk.TIMMessageListener;
-import com.tencent.imsdk.TIMUserConfig;
-import com.tencent.imsdk.TIMUserStatusListener;
 import com.yolo.kraus.bysjdemo01.Bean.UserInfo;
-import com.yolo.kraus.bysjdemo01.Logic.JumpLogic;
-import com.yolo.kraus.bysjdemo01.Model.nowInfo;
 import com.yolo.kraus.bysjdemo01.R;
 import com.yolo.kraus.bysjdemo01.Util.Constants;
 import com.yolo.kraus.bysjdemo01.Util.LocalSpUtil;
 import com.yolo.kraus.bysjdemo01.ViewModel.LoginModel;
-import com.yolo.kraus.bysjdemo01.business.LoginBusiness;
 import com.yolo.kraus.bysjdemo01.databinding.UserLoginBinding;
-import com.yolo.kraus.bysjdemo01.event.FriendshipEvent;
-import com.yolo.kraus.bysjdemo01.event.GroupEvent;
-import com.yolo.kraus.bysjdemo01.event.MessageEvent;
-import com.yolo.kraus.bysjdemo01.viewfeatures.jumpView;
 import com.yolo.kraus.bysjdemo01.viewfeatures.loginView;
-
-import com.yolo.kraus.ui.NotifyDialog;
-
-import java.util.List;
 
 /**
  * Created by Kraus on 2018/4/19.
@@ -141,6 +119,14 @@ public class LoginActivity  extends BaseActivity implements loginView{
         binding.btnLogin.getBackground().mutate().setAlpha(255);
         binding.btnLogin.setEnabled(true);
         Toast.makeText(this,"logining error",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void jumpToNew() {
+        Intent intent = new Intent();
+        intent.setClass(this,NewUserActivity.class);
+        startActivity(intent);
+        Log.d(TAG, "serverToIM: 跳转register Activity");
     }
 
 

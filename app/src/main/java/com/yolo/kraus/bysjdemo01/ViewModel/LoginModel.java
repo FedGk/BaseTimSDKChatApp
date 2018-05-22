@@ -67,7 +67,9 @@ public class LoginModel  {
 
     public void registerUser()
     {
+        cb.jumpToNew();
         Toast.makeText(ImApplication.getContext(),"ok",Toast.LENGTH_SHORT).show();
+
     }
 
 

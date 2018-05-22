@@ -3,8 +3,10 @@ package com.yolo.kraus.bysjdemo01.Http;
 import android.util.Log;
 
 import com.yolo.kraus.bysjdemo01.Http.JsonBean.JsonLogin;
+import com.yolo.kraus.bysjdemo01.Http.JsonBean.NewUserBean;
 import com.yolo.kraus.bysjdemo01.Http.mInterface.callBackBase;
 import com.yolo.kraus.bysjdemo01.Http.mInterface.iLogin;
+import com.yolo.kraus.bysjdemo01.Http.mInterface.iNew;
 
 import java.util.List;
 
@@ -45,6 +47,35 @@ public class loginHttp {
                     @Override
                     public void onComplete() {
                         Log.d(TAG, "onComplete: ");
+                    }
+                });
+    }
+
+    public static void mAddUser(NewUserBean.User user, final callBackBase cb)
+    {
+        iNew iNew = BaseHttp.mRetrofit().create(com.yolo.kraus.bysjdemo01.Http.mInterface.iNew.class);
+        iNew.addUser(user)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<NewUserBean.newBack>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<NewUserBean.newBack> newBacks) {
+                        cb.onSuccess(newBacks);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        cb.onError(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }

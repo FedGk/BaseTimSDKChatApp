@@ -42,6 +42,10 @@
     <string name="home_conversation_tab">会话</string>
     <string name="home_setting_tab">设置</string>
 
+    <!--newUser activitu-->
+    <string name="new_title">注册新用户</string>
+    <string name="register">注册</string>
+
     <!-- conversation fragment -->
     <string name="conversation_system">系统消息</string>
     <string name="conversation_system_friend">新朋友</string>
@@ -70,6 +74,8 @@
     <string name="setting_friend_need_confirm">需验证</string>
     <string name="setting_nick_name_change">修改昵称</string>
     <string name="setting_friend_confirm_change_err">修改验证类型失败</string>
+    <string name="setting_news">新闻</string>
+
 
 
     <!-- Add newfriend activity -->
