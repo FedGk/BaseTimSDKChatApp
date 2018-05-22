@@ -3,6 +3,7 @@ package com.yolo.kraus.bysjdemo01.Activity;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CompoundButton;
 
 import com.tencent.imsdk.TIMManager;
@@ -27,7 +28,7 @@ public class MessageNotifySettingActivity extends Activity {
         TIMManager.getInstance().getOfflinePushSettings(new TIMValueCallBack<TIMOfflinePushSettings>() {
             @Override
             public void onError(int i, String s) {
-//                Log.e(TAG, "get offline push setting error " + s);
+                Log.d(TAG, "get offline push setting error " + s);
             }
 
             @Override

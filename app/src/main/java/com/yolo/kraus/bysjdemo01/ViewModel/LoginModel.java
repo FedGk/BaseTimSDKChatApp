@@ -5,10 +5,13 @@ import android.content.SharedPreferences;
 import android.databinding.ObservableBoolean;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.tencent.imsdk.TIMCallBack;
 import com.tencent.imsdk.TIMManager;
+import com.tencent.qalsdk.base.remote.ToServiceMsg;
 import com.yolo.kraus.bysjdemo01.Bean.UserInfo;
 import com.yolo.kraus.bysjdemo01.Http.JsonBean.JsonLogin;
 import com.yolo.kraus.bysjdemo01.Http.loginHttp;
@@ -36,8 +39,7 @@ public class LoginModel  {
     public void loginButtonClick(final UserInfo userInfo)
     {
 
-
-
+        cb.setButtonEnable();
         if(userInfo.getPassword()!=null && userInfo.getUsername()!=null)
         {
 
@@ -54,12 +56,18 @@ public class LoginModel  {
 
                 @Override
                 public void onError(Throwable e) {
+                    cb.setButtonable();
                     userInfo.state.set(false);
                 }
             });
         }
         userInfo.state.set(false);
 
+    }
+
+    public void registerUser()
+    {
+        Toast.makeText(ImApplication.getContext(),"ok",Toast.LENGTH_SHORT).show();
     }
 
 

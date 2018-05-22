@@ -128,6 +128,22 @@ public class LoginActivity  extends BaseActivity implements loginView{
 
     }
 
+    @Override
+    public void setButtonEnable() {
+        binding.btnLogin.getBackground().mutate().setAlpha(150);
+        binding.btnLogin.setEnabled(false);
+        Toast.makeText(this,"logining-----",Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void setButtonable() {
+        binding.btnLogin.getBackground().mutate().setAlpha(255);
+        binding.btnLogin.setEnabled(true);
+        Toast.makeText(this,"logining error",Toast.LENGTH_SHORT).show();
+    }
+
+
 //    //im登陆error回调
 //    @Override
 //    public void onError(int i, String s) {

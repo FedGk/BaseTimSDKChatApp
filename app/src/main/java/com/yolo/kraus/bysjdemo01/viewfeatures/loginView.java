@@ -8,4 +8,8 @@ public interface loginView {
     /**
      **/
     void serverToIM();
+
+    void setButtonEnable();
+    void setButtonable();
+
 }

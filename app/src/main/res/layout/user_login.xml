@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/login_backround"
-        android:alpha="0.5"
+        android:alpha="0.9"
         android:orientation="vertical"
         >
 
@@ -35,6 +35,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:hint="用 户 名"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
                 android:maxLength="10"
                 android:textSize="15sp"
                 android:text="@={user.username}"
@@ -58,6 +60,8 @@
                     android:layout_alignStart="@+id/linearLayout"
                     android:layout_alignTop="@+id/linearLayout"
                     android:hint="密 码"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:inputType="textPassword"
                     android:maxLength="16"
                     android:text="@={user.password}"
@@ -80,10 +84,10 @@
         </RelativeLayout>
 
         <Button
+            android:id="@+id/btn_login"
             android:text="@string/login_button"
             android:layout_marginTop="15dp"
             android:textSize="24sp"
-            android:alpha="0.5"
             android:textColor="@color/loign_color_button_text"
             android:background="@color/login_color_button"
             android:layout_gravity="center"
@@ -91,6 +95,20 @@
             android:layout_height="@dimen/login_btn_verif_height"
             android:onClick="@{()->vm.loginButtonClick(user)}"
             />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注册新用户"
+                android:textColor="@color/white"
+                android:layout_alignParentEnd="true"
+                android:onClick="@{()->vm.registerUser()}"
+                />
+
+        </RelativeLayout>
 
 
     </LinearLayout>

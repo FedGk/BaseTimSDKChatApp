@@ -3,6 +3,7 @@ package com.yolo.kraus.bysjdemo01.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.tencent.imsdk.TIMConversation;
@@ -48,6 +50,8 @@ public class ConversationFragment extends Fragment implements ConversationView,F
     private List<Conversation> conversationList = new LinkedList<>();//存储当前所有会话
     private ConversationAdapter adapter; // 会话界面消息展示适配器
     private ListView listView;//显示会话的控件实例
+//    private ImageView imageView;//more_thing
+//    private DrawerLayout mDrawerLayout;
     private ConversationLogic mLogic;//会话窗口业务逻辑
     private FriendshipManagerLogic friendshipManagerLogic;//关系链会话逻辑
     private GroupManagerLogic groupManagerLogic;//群组会话逻辑

@@ -2,6 +2,7 @@ package com.yolo.kraus.bysjdemo01;
 
 import android.app.Application;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 
@@ -31,6 +32,7 @@ public class ImApplication extends Application {
     }
 
     private static  final int SDKAPPID = 1400078041;
+    final Uri notifyMusic = Uri.parse("android.resource://com.yolo.kraus.bysjdemo01/" + R.raw.dudulu);
 
 
     @Override
@@ -45,6 +47,7 @@ public class ImApplication extends Application {
                     if (notification.getGroupReceiveMsgOpt() == TIMGroupReceiveMessageOpt.ReceiveAndNotify){
                         //消息被设置为需要提醒
                         notification.doNotify(getApplicationContext(), R.mipmap.ic_launcher);
+                        notification.setSound(notifyMusic);
                     }
                 }
             });

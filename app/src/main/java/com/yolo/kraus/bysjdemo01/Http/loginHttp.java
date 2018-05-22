@@ -1,5 +1,7 @@
 package com.yolo.kraus.bysjdemo01.Http;
 
+import android.util.Log;
+
 import com.yolo.kraus.bysjdemo01.Http.JsonBean.JsonLogin;
 import com.yolo.kraus.bysjdemo01.Http.mInterface.callBackBase;
 import com.yolo.kraus.bysjdemo01.Http.mInterface.iLogin;
@@ -16,6 +18,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class loginHttp {
+    private static String TAG = loginHttp.class.getSimpleName();
     public static void mLoginCheck(JsonLogin.User user, final callBackBase cb)
     {
         iLogin mLogin  = BaseHttp.mRetrofit().create(iLogin.class);
@@ -25,7 +28,7 @@ public class loginHttp {
                 .subscribe(new Observer<List<JsonLogin.loginBack>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        Log.d(TAG, "onSubscribe: ");
                     }
 
                     @Override
@@ -35,12 +38,13 @@ public class loginHttp {
 
                     @Override
                     public void onError(Throwable e) {
+                        Log.d(TAG, "onError: "+e.toString());
                         cb.onError(e);
                     }
 
                     @Override
                     public void onComplete() {
-
+                        Log.d(TAG, "onComplete: ");
                     }
                 });
     }
