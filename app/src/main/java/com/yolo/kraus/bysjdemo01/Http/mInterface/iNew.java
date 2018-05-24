@@ -17,5 +17,5 @@ import retrofit2.http.POST;
 public interface iNew {
     //todo 约束http访问协议
     @POST("login/addUser")
-    Observable<List<NewUserBean.newBack>> addUser(@Body NewUserBean.User user);
+    Observable<NewUserBean.newBack> addUser(@Body NewUserBean.User user);
 }

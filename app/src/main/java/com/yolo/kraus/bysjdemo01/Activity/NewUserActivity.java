@@ -21,11 +21,11 @@ import com.yolo.kraus.ui.TemplateTitle;
 public class NewUserActivity extends Activity implements View.OnClickListener,NewUserView {
 
     private TemplateTitle title;
-    private NewUserLogic newUserLogic;
     private EditText edName;
     private EditText edPwd;
     private TextView rightTxt;
     private final  static String TAG = NewUserActivity.class.getSimpleName();
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,8 +43,9 @@ public class NewUserActivity extends Activity implements View.OnClickListener,Ne
 
         rightTxt = title.findViewById(R.id.txt_more);
 
-        edName.findViewById(R.id.new_ed_name);
-        edPwd.findViewById(R.id.new_ed_password);
+        edName = findViewById(R.id.new_ed_name);
+        edPwd = findViewById(R.id.new_ed_password);
+
 
     }
 
@@ -59,8 +60,8 @@ public class NewUserActivity extends Activity implements View.OnClickListener,Ne
                 if(!edName.getText().toString().isEmpty() && !edPwd.getText().toString().isEmpty())
                 {
                     //todo button 不可选择判断
-                    rightTxt.setClickable(false);
-                    NewUserLogic.getInstance().setData(edName.getText().toString(),edPwd.getText().toString());
+//                    rightTxt.setClickable(false);
+                    NewUserLogic.getInstance().setData(edName.getText().toString(),edPwd.getText().toString(),this);
                     NewUserLogic.getInstance().start();
 
                 }
@@ -78,12 +79,18 @@ public class NewUserActivity extends Activity implements View.OnClickListener,Ne
 
     @Override
     public void registerSuccess() {
-
+        Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void registerError(Throwable e) {
+        Log.d(TAG, "registerError: "+e.toString());
+    }
 
+    @Override
+    public void registerFaile() {
+        Toast.makeText(this,"该账号已被注册",Toast.LENGTH_SHORT).show();
+        rightTxt.setClickable(true);
     }
 
     @Override

@@ -8,4 +8,5 @@ public interface NewUserView {
 
     void registerSuccess();
     void registerError(Throwable e);
+    void registerFaile();
 }

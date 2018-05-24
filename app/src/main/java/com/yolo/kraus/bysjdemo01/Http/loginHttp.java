@@ -57,14 +57,14 @@ public class loginHttp {
         iNew.addUser(user)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<NewUserBean.newBack>>() {
+                .subscribe(new Observer<NewUserBean.newBack>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(List<NewUserBean.newBack> newBacks) {
+                    public void onNext(NewUserBean.newBack newBacks) {
                         cb.onSuccess(newBacks);
                     }
 
