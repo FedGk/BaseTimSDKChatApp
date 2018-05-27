@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tencent.imsdk.TIMManager;
+import com.yolo.kraus.bysjdemo01.Http.WeatherHttp;
 import com.yolo.kraus.bysjdemo01.Model.FriendshipInfo;
 import com.yolo.kraus.bysjdemo01.Model.GroupInfo;
 import com.yolo.kraus.bysjdemo01.Model.nowInfo;
@@ -68,6 +69,7 @@ public class HomeActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "HomeActivity onCreate: ");
         setContentView(R.layout.activity_home);
+
 
         if (requestPermission())
         {

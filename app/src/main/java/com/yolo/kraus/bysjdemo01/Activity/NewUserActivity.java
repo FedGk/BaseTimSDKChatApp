@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yolo.kraus.bysjdemo01.Http.WeatherHttp;
 import com.yolo.kraus.bysjdemo01.Logic.NewUserLogic;
 import com.yolo.kraus.bysjdemo01.R;
 import com.yolo.kraus.bysjdemo01.viewfeatures.NewUserView;

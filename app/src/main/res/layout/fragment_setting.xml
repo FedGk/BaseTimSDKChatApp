@@ -76,6 +76,12 @@
         app:name="@string/setting_news"
         app:canNav="true"/>
     <com.yolo.kraus.ui.LineControllerView
+        android:id="@+id/weather"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:name="@string/setting_weather"
+        app:canNav="true"/>
+    <com.yolo.kraus.ui.LineControllerView
         android:id="@+id/blackList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
