@@ -124,6 +124,15 @@ public class SettingFragment extends Fragment implements FriendInfoView {
 
                 }
             });
+            LineControllerView weather = view.findViewById(R.id.weather);
+            weather.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                    startActivity(intent);
+                }
+            });
+
             LineControllerView blackList = (LineControllerView) view.findViewById(R.id.blackList);
             blackList.setOnClickListener(new View.OnClickListener() {
                 @Override

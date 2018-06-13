@@ -58,6 +58,8 @@
         <activity android:name=".Activity.MessageNotifySettingActivity"/>
         <activity android:name=".Activity.BlackListActivity"/>
         <activity android:name=".Activity.NewUserActivity"/>
+        <activity android:name=".Activity.WeatherActivity"/>
+        <activity android:name=".Activity.CityActivity" android:theme="@style/DefaultCityPickerTheme"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

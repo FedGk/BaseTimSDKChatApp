@@ -110,7 +110,7 @@ public class LoginActivity  extends BaseActivity implements loginView{
     public void setButtonEnable() {
         binding.btnLogin.getBackground().mutate().setAlpha(150);
         binding.btnLogin.setEnabled(false);
-        Toast.makeText(this,"logining-----",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"登陆中-----",Toast.LENGTH_SHORT).show();
 
     }
 

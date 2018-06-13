@@ -163,6 +163,7 @@ public class StartActivity  extends BaseActivity implements jumpView,TIMCallBack
         TIMManager.getInstance().setUserConfig(userConfig);
 
         //login
+
         LoginBusiness.loginIm(nowInfo.getInstance().getId(), nowInfo.getInstance().getUserSig(),this);
 
         //消息监听
