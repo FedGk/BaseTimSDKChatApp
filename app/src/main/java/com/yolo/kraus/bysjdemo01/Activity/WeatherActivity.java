@@ -44,7 +44,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView  {
     private LinearLayout mWeatherContentLayout;
     private TemplateTitle mTitle;
 
-    private String city = "成都";
+    private String city = ImApplication.getInstance().getCityName();
     private static  int REQUEST_CODE = 0;
 
     @Override
@@ -73,19 +73,32 @@ public class WeatherActivity extends AppCompatActivity implements WeatherView  {
                 }
             }
         });
-
         wl.init(WeatherActivity.this,city,this);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "requestCode: "+requestCode+"resultCode: "+resultCode);
         if(resultCode== CityModel.code)
         {
             if(requestCode == REQUEST_CODE)
                 city = data.getStringExtra(CityModel.Key1);
+                ImApplication.getInstance().setCityName(city);
                 wl.init(WeatherActivity.this,city,this);
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(CityModel.Key1,city);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        city = savedInstanceState.getString(CityModel.Key1);
     }
 
     @Override

@@ -34,11 +34,30 @@ public class ImApplication extends Application {
     private static  final int SDKAPPID = 1400078041;
     final Uri notifyMusic = Uri.parse("android.resource://com.yolo.kraus.bysjdemo01/" + R.raw.dudulu);
 
+    private static String cityName = "成都";
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        ImApplication.cityName = cityName;
+    }
+
+    public static ImApplication getInstance() {
+        return instance;
+    }
+
+    private static ImApplication instance = null;
+
+
+
 
     @Override
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+        instance = this;
 
         if(MsfSdkUtils.isMainProcess(this)) {
             TIMManager.getInstance().setOfflinePushListener(new TIMOfflinePushListener() {
