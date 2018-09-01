@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_refresh_widget"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.yolo.kraus.ui.TemplateTitle
+        android:id="@+id/news_title"
+        app:titleText="新闻"
+        app:moreText="刷新"
+        app:canBack="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/news_title"
+        android:id="@+id/recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:paddingTop="5dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

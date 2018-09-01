@@ -20,4 +20,6 @@
     <string name="chat_image_preview_send">发送</string>
     <string name="chat_image_preview_load_err">图片加载失败</string>
     <string name="chat_image_preview_ori">原图发送</string>
+
+    <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 </resources>

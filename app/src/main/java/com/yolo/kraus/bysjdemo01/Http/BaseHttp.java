@@ -13,7 +13,7 @@ public class BaseHttp {
         return APP_SERVER_URL;
     }
 
-    private static final String APP_SERVER_URL = "http://119.28.176.152/";
+    private static final String APP_SERVER_URL = "http://45.40.200.128/";
 
     public static Retrofit mRetrofit()
     {

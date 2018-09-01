@@ -14,6 +14,7 @@ import com.tencent.imsdk.TIMCallBack;
 import com.tencent.imsdk.TIMFriendAllowType;
 import com.tencent.imsdk.TIMUserProfile;
 import com.yolo.kraus.bysjdemo01.Logic.FriendshipManagerLogic;
+import com.yolo.kraus.bysjdemo01.News.activity.NewsActivity;
 import com.yolo.kraus.bysjdemo01.R;
 import com.yolo.kraus.bysjdemo01.business.LoginBusiness;
 import com.yolo.kraus.bysjdemo01.viewfeatures.FriendInfoView;
@@ -118,8 +119,8 @@ public class SettingFragment extends Fragment implements FriendInfoView {
             news.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(getActivity(), MessageNotifySettingActivity.class);
-//                    startActivity(intent);
+                    Intent intent = new Intent(getActivity(), NewsActivity.class);
+                    startActivity(intent);
                     Toast.makeText(getContext(),getResources().getString(R.string.setting_news),Toast.LENGTH_LONG).show();
 
                 }

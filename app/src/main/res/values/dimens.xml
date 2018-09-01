@@ -6,6 +6,11 @@
     <dimen name="login_btn_verif_width">@dimen/login_edit_width</dimen>
 
     <dimen name="login_eyes">20dp</dimen>
+    <dimen name="card_margin">5dp</dimen>
+
+    <dimen name="sn_16sp">16sp</dimen>
+    <dimen name="sn_14sp">14sp</dimen>
+    <dimen name="sn_12sp">12sp</dimen>
 
 
 </resources>
