@@ -61,6 +61,7 @@
         <activity android:name=".Activity.WeatherActivity"/>
         <activity android:name=".Activity.CityActivity" android:theme="@style/DefaultCityPickerTheme"/>
         <activity android:name=".News.activity.NewsActivity" />
+        <activity android:name=".News.activity.WebViewActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

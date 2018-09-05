@@ -115,9 +115,9 @@ public class ChatLogic implements Observer {
     }
 
     /**
-     * 发送在线消息
+     * 撤回发送的消息
      *
-     * @param message 发送的消息
+     * @param message 已经发送的消息
      */
     public void revokeMessage(final TIMMessage message) {
         TIMConversationExt timConversationExt = new TIMConversationExt(conversation);
@@ -125,12 +125,13 @@ public class ChatLogic implements Observer {
             @Override
             public void onError(int i, String s) {
                 Log.d(TAG,"revoke error " + i);
-                view.showToast("revoke error " + s);
+                view.showToast("撤回失败，已发送超过2分钟！");
             }
 
             @Override
             public void onSuccess() {
                 Log.d(TAG,"revoke success");
+                view.showToast("撤回成功！");
                 MessageEvent.getInstance().onNewMessage(null);
             }
         });

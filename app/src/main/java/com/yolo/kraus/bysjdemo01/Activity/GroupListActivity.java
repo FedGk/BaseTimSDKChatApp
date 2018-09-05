@@ -48,7 +48,7 @@ public class GroupListActivity extends Activity implements Observer {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 list.get(position).onClick(GroupListActivity.this);
-                Toast.makeText(getApplicationContext(),"group"+position,Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"group"+position,Toast.LENGTH_LONG).show();
             }
         });
         TemplateTitle title = (TemplateTitle) findViewById(R.id.groupListTitle);

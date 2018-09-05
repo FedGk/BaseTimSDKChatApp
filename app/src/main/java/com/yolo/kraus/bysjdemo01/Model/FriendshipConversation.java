@@ -1,9 +1,11 @@
 package com.yolo.kraus.bysjdemo01.Model;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.tencent.imsdk.ext.group.TIMGroupPendencyItem;
 import com.tencent.imsdk.ext.sns.TIMFriendFutureItem;
+import com.yolo.kraus.bysjdemo01.Activity.FriendshipManageMessageActivity;
 import com.yolo.kraus.bysjdemo01.ImApplication;
 import com.yolo.kraus.bysjdemo01.R;
 
@@ -61,8 +63,8 @@ public class FriendshipConversation extends Conversation {
      */
     @Override
     public void navToDetail(Context context) {
-//        Intent intent = new Intent(context, FriendshipManageMessageActivity.class);
-//        context.startActivity(intent);
+        Intent intent = new Intent(context, FriendshipManageMessageActivity.class);
+        context.startActivity(intent);
     }
 
     /**

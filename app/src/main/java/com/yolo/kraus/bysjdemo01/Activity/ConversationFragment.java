@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -75,6 +76,7 @@ public class ConversationFragment extends Fragment implements ConversationView,F
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Log.d("tsad", "onItemClick: "+position);
                     //跳转到聊天界面
                     conversationList.get(position).navToDetail(getActivity());
                     //判断当前点击view是否为群组聊天view

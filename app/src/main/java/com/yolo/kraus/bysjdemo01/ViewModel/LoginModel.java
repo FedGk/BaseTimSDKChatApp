@@ -39,19 +39,30 @@ public class LoginModel  {
     public void loginButtonClick(final UserInfo userInfo)
     {
 
-        cb.setButtonEnable();
+
         if(userInfo.getPassword()!=null && userInfo.getUsername()!=null)
         {
+            cb.setButtonEnable();
 
             final JsonLogin.User user  = new JsonLogin.User(userInfo.getUsername(),userInfo.getPassword());
 
             loginHttp.mLoginCheck(user, new callBackBase<List<JsonLogin.loginBack>>() {
                 @Override
                 public void onSuccess(List<JsonLogin.loginBack> datas) {
-                    userInfo.state.set(true);
-                    nowInfo.getInstance().setId(userInfo.getUsername());
-                    nowInfo.getInstance().setUserSig(datas.get(0).getSig());
-                    cb.serverToIM();
+                    if(!datas.get(0).getStatus().equals("401"))
+                    {
+                        userInfo.state.set(true);
+                        nowInfo.getInstance().setId(userInfo.getUsername());
+                        nowInfo.getInstance().setUserSig(datas.get(0).getSig());
+                        cb.serverToIM();
+                    }
+                    else
+                    {
+                        cb.setButtonable();
+                        userInfo.state.set(false);
+                    }
+
+
                 }
 
                 @Override
@@ -60,6 +71,10 @@ public class LoginModel  {
                     userInfo.state.set(false);
                 }
             });
+        }
+        else
+        {
+            cb.showToast("请输入账号或者密码！");
         }
         userInfo.state.set(false);
 

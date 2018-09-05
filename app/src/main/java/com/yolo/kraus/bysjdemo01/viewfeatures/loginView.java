@@ -14,4 +14,6 @@ public interface loginView {
 
     void jumpToNew();
 
+    void showToast(String msg);
+
 }

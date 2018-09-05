@@ -195,7 +195,7 @@ public class GroupProfileActivity extends FragmentActivity implements GroupInfoV
                 intentGroupMem.putExtra("id", identify);
                 intentGroupMem.putExtra("type",type);
                 startActivity(intentGroupMem);
-                Toast.makeText(getApplicationContext(),"member",Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"member",Toast.LENGTH_LONG).show();
                 break;
             case R.id.addOpt:
                 final String[] stringList = allowTypeContent.keySet().toArray(new String[allowTypeContent.size()]);
@@ -266,6 +266,7 @@ public class GroupProfileActivity extends FragmentActivity implements GroupInfoV
 
                             @Override
                             public void onSuccess() {
+                                Log.d("ttts", "onSuccess: 修改成功"+messageOptList[which]);
                                 LineControllerView msgNotify = (LineControllerView) findViewById(R.id.messageNotify);
                                 msgNotify.setContent(messageOptList[which]);
                             }

@@ -16,6 +16,7 @@ import android.text.SpannableString;
 import android.text.TextWatcher;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -45,7 +46,7 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
 
     private ImageButton btnAdd, btnSend, btnVoice, btnKeyboard, btnEmotion;
     private EditText editText;
-    private boolean isSendVisible,isHoldVoiceBtn,isEmoticonReady;
+    private boolean isSendVisible,isHoldVoiceBtn,isEmoticonReady,isCancleSend;
     private InputMode inputMode = InputMode.NONE;
     private ChatView chatView;
     private LinearLayout morePanel,textPanel;
@@ -59,6 +60,7 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
         super(context, attrs);
         LayoutInflater.from(context).inflate( R.layout.chat_input, this);
         initView();
+
     }
 
 
@@ -87,8 +89,10 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
         btnKeyboard.setOnClickListener(this);
         voicePanel = (TextView) findViewById( R.id.voice_panel);
         voicePanel.setOnTouchListener(new OnTouchListener() {
+            float startY = 0;
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+//                isCancleSend = false;
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         isHoldVoiceBtn = true;
@@ -97,6 +101,16 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
                     case MotionEvent.ACTION_UP:
                         isHoldVoiceBtn = false;
                         updateVoiceView();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        float moveY = event.getY();
+                        int instance = (int) Math.abs((moveY - startY));
+                        Log.d(TAG, "--action move--instance:"+instance);
+//                        chatView.cancelSendVoice();
+                        if (instance > 350) {
+                            isCancleSend=true;
+                            chatView.cancelSendVoice();
+                        }
                         break;
                 }
                 return true;
@@ -184,7 +198,12 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
         {
             voicePanel.setText(getResources().getString( R.string.chat_press_talk));
             voicePanel.setBackground(getResources().getDrawable( R.drawable.btn_voice_normal));
-            chatView.endSendVoice();
+            Log.d(TAG, "updateVoiceView: "+isCancleSend);
+            if(!isCancleSend)
+            {
+                isCancleSend = false;
+                chatView.endSendVoice();
+            }
         }
     }
 

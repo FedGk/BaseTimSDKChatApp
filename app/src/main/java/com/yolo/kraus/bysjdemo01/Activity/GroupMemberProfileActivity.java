@@ -217,7 +217,10 @@ public class GroupMemberProfileActivity extends FragmentActivity {
 
                         @Override
                         public void onSuccess() {
-                            Toast.makeText(GroupMemberProfileActivity.this, getString(R.string.group_member_manage_set_succ), Toast.LENGTH_SHORT).show();
+                            if(isChecked)
+                                Toast.makeText(GroupMemberProfileActivity.this, getString(R.string.group_member_manage_set_succ), Toast.LENGTH_SHORT).show();
+                            else
+                                Toast.makeText(GroupMemberProfileActivity.this, getString(R.string.group_member_manage_cancle_set_succ), Toast.LENGTH_SHORT).show();
                             profile.setRoleType(isChecked ? TIMGroupMemberRoleType.Admin : TIMGroupMemberRoleType.Normal);
                         }
                     });

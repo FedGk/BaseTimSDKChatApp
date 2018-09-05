@@ -129,6 +129,11 @@ public class LoginActivity  extends BaseActivity implements loginView{
         Log.d(TAG, "serverToIM: 跳转register Activity");
     }
 
+    @Override
+    public void showToast(String msg) {
+        Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
+    }
+
 
 //    //im登陆error回调
 //    @Override

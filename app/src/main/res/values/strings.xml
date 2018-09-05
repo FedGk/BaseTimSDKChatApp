@@ -129,6 +129,7 @@
     <string name="chat_audio_too_short">录音过短，请重试</string>
     <string name="chat_audio_too_long">录音过长，请重试</string>
     <string name="chat_video_too_short">录制过短，请重试</string>
+    <string name="chat_video_cancle_send">已取消发送</string>
     <string name="chat_resend">重新发送</string>
     <string name="chat_pullback">撤回</string>
     <string name="chat_pullback_not_support">改会话不支持消息撤回</string>
@@ -285,6 +286,7 @@
     <string name="group_member_manage_set_err">设置管理员失败</string>
     <string name="group_member_manage_set_type_err">该类型群组不能设置管理员</string>
     <string name="group_member_manage_set_succ">设置管理员成功</string>
+    <string name="group_member_manage_cancle_set_succ">取消管理员成功</string>
     <string name="group_member_quiet_ing">禁言中</string>
     <string name="group_member_quiet_ten_min">十分钟</string>
     <string name="group_member_quiet_one_hour">一小时</string>

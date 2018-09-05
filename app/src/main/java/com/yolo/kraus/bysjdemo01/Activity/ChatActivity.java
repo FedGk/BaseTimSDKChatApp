@@ -516,7 +516,10 @@ public class ChatActivity extends FragmentActivity implements ChatView{
      */
     @Override
     public void cancelSendVoice() {
-
+        voiceSendingView.release();
+        voiceSendingView.setVisibility(View.GONE);
+        recorder.stopRecording();
+        Toast.makeText(this, getResources().getString(R.string.chat_video_cancle_send), Toast.LENGTH_SHORT).show();
     }
 
     /**

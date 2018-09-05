@@ -25,6 +25,8 @@ public class VoiceSendingView extends RelativeLayout {
 
     }
 
+
+
     public void showRecording(){
         frameAnimation.start();
     }

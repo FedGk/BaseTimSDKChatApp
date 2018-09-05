@@ -1,16 +1,19 @@
 package com.yolo.kraus.bysjdemo01.News.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.yolo.kraus.bysjdemo01.GlideApp;
+import com.yolo.kraus.bysjdemo01.News.activity.WebViewActivity;
 import com.yolo.kraus.bysjdemo01.News.model.NewsJson;
 import com.yolo.kraus.bysjdemo01.R;
 import com.yolo.kraus.bysjdemo01.Util.TimeStamp2Date;
@@ -19,6 +22,16 @@ public class RecyclerViewNewsAdapter extends RecyclerView.Adapter<RecyclerViewNe
 
     private Context ctx;
     private NewsJson data;
+
+    private OnItemClickListener mItemClickListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position,String url);
+    }
+
+    public void setItemClickListener(OnItemClickListener itemClickListener) {
+        mItemClickListener = itemClickListener;
+    }
 
     public RecyclerViewNewsAdapter(Context context, NewsJson data)
     {
@@ -37,7 +50,7 @@ public class RecyclerViewNewsAdapter extends RecyclerView.Adapter<RecyclerViewNe
     @Override
     public void onBindViewHolder(NewsHolder holder, final int position) {
 
-        NewsJson.DataBean.NewsBean one = data.getData().getNews().get(position);
+        final NewsJson.DataBean.NewsBean one = data.getData().getNews().get(position);
 
         if (one.getThumbnail_img().size()>0)
         {
@@ -59,10 +72,13 @@ public class RecyclerViewNewsAdapter extends RecyclerView.Adapter<RecyclerViewNe
         holder.newsContent.setText(one.getSource());
         holder.newsTime.setText(TimeStamp2Date.TimeStamp2Date(String.valueOf(one.getGmt_publish())));
 
+
+        holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(ctx,""+position,Toast.LENGTH_SHORT).show();
+                mItemClickListener.onItemClick((Integer) view.getTag(),one.getUrl());
             }
         });
     }
