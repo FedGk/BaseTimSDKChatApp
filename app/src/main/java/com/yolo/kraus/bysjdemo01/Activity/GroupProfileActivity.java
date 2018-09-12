@@ -188,7 +188,7 @@ public class GroupProfileActivity extends FragmentActivity implements GroupInfoV
                 Intent intent = new Intent(this, ApplyGroupActivity.class);
                 intent.putExtra("identify", identify);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(),"controlOutGroup",Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"controlOutGroup",Toast.LENGTH_LONG).show();
                 break;
             case R.id.member:
                 Intent intentGroupMem = new Intent(this, GroupMemberActivity.class);

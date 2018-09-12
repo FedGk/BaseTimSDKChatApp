@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.yolo.kraus.bysjdemo01.ImApplication;
 import com.yolo.kraus.bysjdemo01.Model.CityModel;
 import com.zaaach.citypicker.CityPicker;
 import com.zaaach.citypicker.adapter.OnPickListener;
@@ -31,7 +32,13 @@ public class CityActivity extends AppCompatActivity {
                     @Override
                     public void onPick(int position, City data) {
                         Intent intent = new Intent();
-                        intent.putExtra(CityModel.Key1,data.getName());
+                        if(data ==null)
+                        {
+                            String city = ImApplication.getInstance().getCityName();
+                            intent.putExtra(CityModel.Key1,city);
+                        }
+                        else
+                            intent.putExtra(CityModel.Key1,data.getName());
 //                        intent.setClass(CityActivity.this,WeatherActivity.class);
                         setResult(CityModel.code,intent);
                         finish();
@@ -44,6 +51,7 @@ public class CityActivity extends AppCompatActivity {
                     }
                 })
                 .show();
+
 
     }
 

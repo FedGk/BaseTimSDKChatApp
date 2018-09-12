@@ -19,6 +19,7 @@ import com.yolo.kraus.bysjdemo01.viewfeatures.GroupManageView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * 群管理逻辑
@@ -114,18 +115,22 @@ public class GroupManagerLogic {
         long flag = 0;
         flag |= TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_NAME;
         flag |= TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_OWNER_UIN;
+        Log.d(TAG, "searchGroupByName: "+key);
 
         TIMGroupManagerExt.getInstance().searchGroup(key, flag, null, 0, 30, new TIMValueCallBack<TIMGroupSearchSucc>() {
             @Override
             public void onError(int i, String s) {
-                Log.e(TAG, "onError code" + i + " msg " + s);
+                Log.e(TAG, "by name onError code" + i + " msg " + s);
                 if (infoView == null) return;
                 infoView.showGroupInfo(new ArrayList<TIMGroupDetailInfo>());
             }
 
             @Override
             public void onSuccess(TIMGroupSearchSucc timGroupSearchSucc) {
-                if (infoView == null) return;
+
+                if (infoView == null)
+                    return;
+                Log.d(TAG, "by name onSuccess: " +(infoView == null));
                 infoView.showGroupInfo(timGroupSearchSucc.getInfoList());
             }
         });
@@ -138,11 +143,12 @@ public class GroupManagerLogic {
      * @param groupId 群组ID
      */
     public void searchGroupByID(final String groupId){
+
         TIMGroupManagerExt.getInstance().getGroupPublicInfo(Collections.singletonList(groupId), new TIMValueCallBack<List<TIMGroupDetailInfo>>() {
             @Override
             public void onError(int i, String s) {
-                Log.e(TAG, "onError code" + i + " msg " + s);
-                searchGroupByName(groupId);
+                Log.e(TAG, "by id onError code" + i + " msg " + s);
+                searchGroupByName("qq1536136432920");
             }
 
             @Override
@@ -194,6 +200,9 @@ public class GroupManagerLogic {
             memberinfos.add(newMember);
         }
         TIMGroupManager.CreateGroupParam groupGroupParam = new TIMGroupManager.CreateGroupParam(type, name);
+        long ss = System.currentTimeMillis();
+        String ss2 = Long.toString(ss).substring(5);
+        groupGroupParam.setGroupId("3"+ ss2);
         groupGroupParam.setMembers(memberinfos);
         TIMGroupManager.getInstance().createGroup(groupGroupParam, callBack);
     }

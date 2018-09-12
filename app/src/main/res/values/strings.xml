@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BYSJDEMO01</string>
+    <string name="app_name">即时通讯APP</string>
 
     <string name="login_button">登  录</string>
 
@@ -266,7 +266,7 @@
     <string name="change_category_title">移至分组</string>
 
     <!-- search group activity -->
-    <string name="search_group_hint">搜索ID或名称</string>
+    <string name="search_group_hint">搜索</string>
 
     <!-- edit activity -->
     <string name="edit_error">修改失败</string>
@@ -304,18 +304,18 @@
 
     <!-- about activity -->
     <string name="about_title">关于</string>
-    <string name="about_imsdk">IMSDK版本</string>
-    <string name="about_qalsdk">QAL版本</string>
-    <string name="about_tlssdk">TLS版本</string>
-    <string name="about_env">网络环境</string>
-    <string name="about_log">日志等级</string>
-    <string name="about_env_normal">正式环境</string>
-    <string name="about_env_test">测试环境</string>
-    <string name="about_set_effect">设置成功，杀进程重启后生效</string>
+    <string name="about_imsdk">1</string>
+    <string name="about_qalsdk">1</string>
+    <string name="about_tlssdk">1</string>
+    <string name="about_env">1</string>
+    <string name="about_log">1</string>
+    <string name="about_env_normal">1</string>
+    <string name="about_env_test">1</string>
+    <string name="about_set_effect">1</string>
 
     <!-- message notify activity -->
-    <string name="message_notify_title">消息提醒</string>
-    <string name="message_notify_push">离线消息推送</string>
-    <string name="message_notify_c2c_music">自定义C2C消息推送声音</string>
-    <string name="message_notify_group_music">自定义群消息推送声音</string>
+    <string name="message_notify_title">1</string>
+    <string name="message_notify_push">1</string>
+    <string name="message_notify_c2c_music">1</string>
+    <string name="message_notify_group_music">1</string>
 </resources>

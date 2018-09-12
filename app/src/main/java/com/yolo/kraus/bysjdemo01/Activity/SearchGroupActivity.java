@@ -1,7 +1,9 @@
 package com.yolo.kraus.bysjdemo01.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -73,7 +75,10 @@ public class SearchGroupActivity extends Activity implements GroupInfoView, View
                 adapter.notifyDataSetChanged();
                 String key = searchInput.getText().toString();
                 if (key.equals("")) return true;
-                groupManagerPresenter.searchGroupByID(key);
+                Intent intent = new Intent(this, ApplyGroupActivity.class);
+                intent.putExtra("identify", key);
+                startActivity(intent);
+//                groupManagerPresenter.searchGroupByID(key);
                 return true;
             default:
                 return false;
@@ -89,6 +94,7 @@ public class SearchGroupActivity extends Activity implements GroupInfoView, View
     public void showGroupInfo(List<TIMGroupDetailInfo> groupInfos) {
         list.clear();
         for (TIMGroupDetailInfo item : groupInfos){
+            Log.d(TAG, "showGroupInfo: "+item.getGroupName());
             list.add(new GroupProfile(item));
         }
         adapter.notifyDataSetChanged();

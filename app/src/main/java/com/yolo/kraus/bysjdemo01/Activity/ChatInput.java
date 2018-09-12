@@ -53,6 +53,7 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
     private TextView voicePanel;
     private LinearLayout emoticonPanel;
     private final int REQUEST_CODE_ASK_PERMISSIONS = 100;
+    private int isInstance = 0;
 
 
 
@@ -92,10 +93,11 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
             float startY = 0;
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-//                isCancleSend = false;
+
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         isHoldVoiceBtn = true;
+                        isInstance = 0;
                         updateVoiceView();
                         break;
                     case MotionEvent.ACTION_UP:
@@ -105,10 +107,12 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
                     case MotionEvent.ACTION_MOVE:
                         float moveY = event.getY();
                         int instance = (int) Math.abs((moveY - startY));
+                        isCancleSend = false;
                         Log.d(TAG, "--action move--instance:"+instance);
 //                        chatView.cancelSendVoice();
-                        if (instance > 350) {
-                            isCancleSend=true;
+                        if (instance > 350 && !isCancleSend && isInstance <350) {
+                            isInstance = instance;
+                            cancle();
                             chatView.cancelSendVoice();
                         }
                         break;
@@ -128,6 +132,19 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
         });
         isSendVisible = editText.getText().length() != 0;
         emoticonPanel = (LinearLayout) findViewById( R.id.emoticonPanel);
+
+    }
+
+    private void cancle()
+    {
+        if(isInstance>=350)
+        {
+            voicePanel.setText(getResources().getString( R.string.chat_press_talk));
+            voicePanel.setBackground(getResources().getDrawable( R.drawable.btn_voice_normal));
+            Log.d(TAG, "updateVoiceView: "+isCancleSend);
+            isCancleSend = false;
+
+        }
 
     }
 
@@ -196,14 +213,20 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
         }
         else
         {
-            voicePanel.setText(getResources().getString( R.string.chat_press_talk));
-            voicePanel.setBackground(getResources().getDrawable( R.drawable.btn_voice_normal));
-            Log.d(TAG, "updateVoiceView: "+isCancleSend);
-            if(!isCancleSend)
+            if(isInstance < 350)
             {
-                isCancleSend = false;
+                voicePanel.setText(getResources().getString( R.string.chat_press_talk));
+                voicePanel.setBackground(getResources().getDrawable( R.drawable.btn_voice_normal));
+                Log.d(TAG, "updateVoiceView: "+isCancleSend);
                 chatView.endSendVoice();
             }
+
+//            if(!isCancleSend)
+//            {
+//                isCancleSend = false;
+//                chatView.endSendVoice();
+//            }
+
         }
     }
 
